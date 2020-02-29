@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fbd9d9;
+    /*background-color: lightsalmon;*/
+}
+
+a:link {
+    color:black;
+    font-weight: 1000;
+    text-decoration: none;
+}
+
+a:visited {
+    color:black;
+}
+
+a:hover {
+    color: whitesmoke;
+}
+
+.headshot {
+    vertical-align: middle;
+    height: auto;
+    float: right;
+    margin-right: 30px;
+    border-radius: 50%;
+    
+}
+
+.aboutMe {
+    display: block;
+    box-sizing: border-box;
+}
+
+.database {
+    float: left;
+     
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
+img {
+    height:500px;
+}
+
