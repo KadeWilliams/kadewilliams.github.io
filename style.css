@@ -1,7 +1,20 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #fbd9d9;
-    /*background-color: lightsalmon;*/
+    background-color: #FFFFFF;
+    color: black;
+   
+}
+.about {
+    font-family: 'Orbitron', serif;
+}
+.name {
+    font-family: 'Orbitron', serif;
+    color:#006A05;
+    padding: 10px 6px 0px 4.5px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    margin-bottom: .2em;
+    font-size: 2em;
 }
 
 a:link {
@@ -21,10 +34,10 @@ a:hover {
 .headshot {
     vertical-align: middle;
     height: auto;
+    width: 50%;
     float: right;
     margin-right: 30px;
-    border-radius: 50%;
-    
+    border-radius: 100%;
 }
 
 .aboutMe {
@@ -47,5 +60,9 @@ a:hover {
 
 img {
     height:500px;
+}
+
+.namecontainer {
+    
 }
 
