@@ -1,6 +1,6 @@
 html{
-    background-color: #004101;
-    color: #ffffff;
+    background-color: #092300;
+    color: #FEFFEA;
     font-family: 'Alata', serif;
 }
 .top{
@@ -17,10 +17,11 @@ html{
 .menu{
     float:right;
     display: inline;
+    margin-right: 28px;
 }
 ul li{
     list-style: none;
-    color: #FFFFFF;
+    color: #FEFFEA;
     display:inline-block;
     padding: 10px;
     margin-left: 0;
@@ -30,15 +31,26 @@ ul li{
     padding-top: 1px;
 }
 a:link {
-    color:white;
+    color:#FEFFEA;
     text-decoration: none;
 }
 a:visited {
-    color:white;
+    color:#FEFFEA ;
 }
 .top{
     margin-bottom: 160;
 }
 .middle{
-    font-size: 50
+    margin-left: 35px;
+    font-size: 50;
+    padding: 10px 6px 0px 4.5px;
+    max-width: 875;
+}
+.who{
+    display: inline-block;
+    margin-bottom: 35px;
+}
+.what{
+    display: inline-block;
+    margin-bottom: 35px;
 }
