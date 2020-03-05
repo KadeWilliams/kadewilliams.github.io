@@ -1,68 +1,44 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #FFFFFF;
-    color: black;
-   
+html{
+    background-color: #004101;
+    color: #ffffff;
+    font-family: 'Alata', serif;
 }
-.about {
-    font-family: 'Orbitron', serif;
+.top{
+    margin-top: 30px;
+    margin-left: 35px;
+    padding: 10px 6px 0px 4.5px;
 }
 .name {
-    font-family: 'Alata', serif;
-    color:#006A05;
-    padding: 10px 6px 0px 4.5px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     word-spacing: 5px;
-    margin-bottom: .2em;
     font-size: 2em;
+    display: inline-block;
 }
-
+.menu{
+    float:right;
+    display: inline;
+}
+ul li{
+    list-style: none;
+    color: #FFFFFF;
+    display:inline-block;
+    padding: 10px;
+    margin-left: 0;
+    text-align: top;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    padding-top: 1px;
+}
 a:link {
-    color:black;
-    font-weight: 1000;
+    color:white;
     text-decoration: none;
 }
-
 a:visited {
-    color:black;
+    color:white;
 }
-
-a:hover {
-    color: whitesmoke;
+.top{
+    margin-bottom: 160;
 }
-
-.headshot {
-    vertical-align: middle;
-    height: auto;
-    width: 50%;
-    float: right;
-    margin-right: 30px;
-    border-radius: 100%;
+.middle{
+    font-size: 50
 }
-
-.aboutMe {
-    display: block;
-    box-sizing: border-box;
-}
-
-.database {
-    float: left;
-     
-}
-
-.row {
-    display: flex;
-}
-
-.column {
-    flex: 50%;
-}
-
-img {
-    height:500px;
-}
-
-.namecontainer {
-    
-}
-
