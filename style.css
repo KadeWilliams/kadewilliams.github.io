@@ -68,7 +68,7 @@ svg {
 
 header {
     height: 200px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     letter-spacing: 2px;
 }
 /* DON'T DELETE, STATIC EFFECT */
@@ -106,7 +106,7 @@ header a:hover{
 
 li {
     margin-top: 10px;
-    margin-left: 30px;
+    margin-left: 20px;
     margin-top: 0;
 }
 li:first-of-type{
