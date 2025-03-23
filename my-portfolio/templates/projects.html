@@ -1,0 +1,9 @@
+{{ define "content" }}
+<h1>My Projects</h1>
+<div id="projects">
+    <!-- Example project card -->
+    <div hx-get="/api/projects/1" hx-trigger="load">
+        Loading project...
+    </div>
+</div>
+{{ end }}
