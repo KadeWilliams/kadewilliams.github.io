@@ -1,43 +1,52 @@
 package main
 
 import (
-	"encoding/json"
-	"html/template"
+	"io"
 	"net/http"
+	"text/template"
+
+	go_templates "my-portfolio/go_templates"
+
+	"github.com/a-h/templ"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
-var tmpl = template.Must(template.ParseGlob("templates/*.html"))
+type Template struct {
+	templates *template.Template
+}
+
+func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
+	return t.templates.ExecuteTemplate(w, name, data)
+}
 
 func main() {
-	http.HandleFunc("/", homeHandler)
-	http.HandleFunc("/projects", projectsHandler)
-	http.HandleFunc("/about", aboutHandler)
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	e := echo.New()
+	e.Renderer = echo.New().Renderer
+	e.Use(middleware.Logger())
+	g := e.Group("")
+	g.Use(middleware.BasicAuth(func(userName, password string, c echo.Context) (bool, error) {
+		if userName == "kade" && password == "1234" {
+			return true, nil
+		}
+		return false, nil
+	}))
 
-	http.ListenAndServe(":8080", nil)
+	g.GET("/test", func(c echo.Context) error {
+		return c.String(http.StatusOK, "Test")
+	})
+
+	e.GET("/", func(c echo.Context) error {
+		return c.String(http.StatusOK, "Hello World")
+	})
+
+	component := go_templates.Hello("John")
+	e.GET("/hello", func(c echo.Context) error {
+		return render(c, component)
+	})
+	e.Logger.Fatal(e.Start(":8080"))
 }
 
-func homeHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl.ExecuteTemplate(w, "base.html", nil)
-}
-
-func projectsHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl.ExecuteTemplate(w, "projects.html", nil)
-}
-
-func aboutHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl.ExecuteTemplate(w, "about.html", nil)
-}
-
-func projectsAPIHandler(w http.ResponseWriter, r *http.Request) {
-	projects := []struct {
-		Name        string `json:"name"`
-		Description string `json:"description"`
-		Link        string `json:"link"`
-	}{
-		{"Project 1", "A cool project", "https://example.com/project1"},
-		{"Project 2", "Another awesome project", "https://example.com/project2"},
-	}
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(projects)
+func render(ctx echo.Context, cmp templ.Component) error {
+	return cmp.Render(ctx.Request().Context(), ctx.Response())
 }
